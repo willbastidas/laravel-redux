@@ -1,7 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
-import axios from 'axios';
+import { Text, View, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import { Styles } from '../estilos/estilos';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem } from '../reducer/reducers';
@@ -15,18 +13,33 @@ const ItemList = () => {
   };
 
   return (
-    <ScrollView>
     <FlatList
       data={items}
       renderItem={({ item }) => (
-        <Text>
-          {item.nombre} - {item.descripcion}-{item.tipo} - {item.stock}{' '}
-          <Text onPress={() => handleRemove(item.id)}>Eliminar</Text>
-        </Text>
+          <ScrollView>
+          <View style={[Styles.Textinput]}>
+            <Text style={[Styles.contentTextInput]}> Nombre Del Producto: {item.nombre}</Text>
+          </View>
+          <View style={[Styles.Textinput]}>
+            <Text style={[Styles.contentTextInput]}> Descripcion Del Producto: {item.descripcion}{' '}</Text>
+          </View>
+          <View style={[Styles.Textinput]}>
+            <Text style={[Styles.contentTextInput]}> Tipo Del Producto: {item.tipo}{' '}</Text>
+          </View>
+          <View style={[Styles.Textinput]}>
+            <Text style={[Styles.contentTextInput]}> Stock Del Producto: {item.stock}{' '}</Text>
+          </View>
+          <View style={[]}>
+            <TouchableOpacity >
+              <Text onPress={() => handleRemove(item.id)} style={[Styles.textCenter, 
+                Styles.botonEliminar1, Styles.spaceBoton]}>
+                Eliminar</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
       )}
       keyExtractor={item => item.id}
     />
-    </ScrollView>
   );
 };
 

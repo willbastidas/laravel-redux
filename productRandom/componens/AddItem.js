@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
 import axios from 'axios';
@@ -39,21 +38,25 @@ const AddItem = () => {
       return (
         <View>
           <TextInput
+            style={[Styles.inputGroup, Styles.textCenterInput]}
             placeholder="Nombre"
             value={nombre}
             onChangeText={setNombre}
           />
           <TextInput
+            style={[Styles.inputGroup, Styles.textCenterInput]}
             placeholder="Descripción"
             value={descripcion}
             onChangeText={setDescripcion}
           />
           <TextInput
+            style={[Styles.inputGroup, Styles.textCenterInput]}
             placeholder="Tipo De Producto"
             value={tipo}
             onChangeText={setTipo}
           />
           <TextInput
+            style={[Styles.inputGroup, Styles.textCenterInput]}
             placeholder="Stock"
             keyboardType='numeric'
             value={stock}
