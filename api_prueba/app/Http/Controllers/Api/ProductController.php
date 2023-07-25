@@ -19,7 +19,7 @@ class ProductController extends Controller
         'tipo' => ['required','string','min:5'],
         'stock' => ['required','integer','min:1'],
        ]); 
-       return response()->json($request);
+      //   
 
        DB::beginTransaction();
        try {
